@@ -1,62 +1,231 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Member - Cuidado com sua Prótese</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Member — Cuidado com sua Prótese</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <div class="logo">
-            <i class="ti ti-accessible"></i>
-            <span>New Member</span>
-        </div>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+        <span class="logo-text">New<strong>Member</strong></span>
+      </a>
 
-        <span id="usuario-logado"></span>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Início</a>
+        <a href="tecnologia.html" class="nav-link">Tecnologia</a>
+        <a href="planos.html" class="nav-link">Planos</a>
+        <a href="manutencao.html" class="nav-link">Manutenção</a>
+        <a href="suporte.html" class="nav-link">Suporte</a>
+        <a href="perfil.html" class="nav-link nav-link--profile">
+          <i class="ti ti-user-circle"></i>
+          <span id="usuario-logado"></span>
+          Perfil
+        </a>
+      </nav>
 
-        <nav>
-    <a href="index.html">Início</a>
-    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="suporte.html">Suporte</a>
-    <a href="perfil.html">Perfil</a>
-</nav>
-
-        <button id="theme-toggle" aria-label="Alternar tema">
-            <i class="ti ti-moon"></i>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">
+          <i class="ti ti-moon" id="theme-icon"></i>
         </button>
-    </header>
+        <button class="menu-btn" id="menu-toggle" aria-label="Menu">
+          <i class="ti ti-menu-2"></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <h1>Próteses</h1>
-        <p>Acompanhe sua prótese, manutenção, reabilitação e suporte especializado.</p>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Início</a>
+    <a href="tecnologia.html" class="mobile-nav-link">Tecnologia</a>
+    <a href="planos.html" class="mobile-nav-link">Planos</a>
+    <a href="manutencao.html" class="mobile-nav-link">Manutenção</a>
+    <a href="suporte.html" class="mobile-nav-link">Suporte</a>
+    <a href="perfil.html" class="mobile-nav-link">Perfil</a>
+  </div>
 
-        <div class="login-container">
-            <div class="login-inputs">
-                <input type="email" id="email" placeholder="Seu e-mail">
-                <input type="password" id="senha" placeholder="Sua senha">
-            </div>
-            
-            <div class="login-actions">
-                <button id="btnCadastro">Cadastrar</button>
-                <button id="btnLogin">Entrar</button>
-                <button id="btnLogout" style="display: none;">Sair</button>
-            </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb--1"></div>
+      <div class="hero-orb hero-orb--2"></div>
+      <div class="hero-orb hero-orb--3"></div>
+      <div class="hero-grid"></div>
+    </div>
 
-            <button class="btn-google">
-                <i class="ti ti-brand-google-filled"></i> Entrar com Google
-            </button>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <i class="ti ti-shield-check"></i>
+          Plataforma certificada de saúde
+        </div>
+        <h1 class="hero-title">
+          Sua prótese,<br>
+          <span class="hero-title--accent">sob controle.</span>
+        </h1>
+        <p class="hero-desc">
+          Acompanhe manutenção, reabilitação e suporte especializado — tudo em um só lugar. Tecnologia a serviço da sua mobilidade.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">2.4k+</span>
+            <span class="stat-label">Pacientes ativos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Satisfação</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label">Suporte</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGIN CARD -->
+      <div class="login-card" id="login-card">
+        <div class="login-card-header">
+          <h2 class="login-card-title">Acesse sua conta</h2>
+          <p class="login-card-sub">Gerencie sua jornada de reabilitação</p>
         </div>
 
+        <div class="login-card-body">
+          <div class="input-group">
+            <label class="input-label" for="email">E-mail</label>
+            <div class="input-wrap">
+              <i class="ti ti-mail input-icon"></i>
+              <input type="email" id="email" class="input-field" placeholder="seu@email.com">
+            </div>
+          </div>
 
-<script type="module" src="firebase.js"></script>
+          <div class="input-group">
+            <label class="input-label" for="senha">Senha</label>
+            <div class="input-wrap">
+              <i class="ti ti-lock input-icon"></i>
+              <input type="password" id="senha" class="input-field" placeholder="••••••••">
+            </div>
+          </div>
 
-    <script src="script.js"></script>
+          <div class="login-btns">
+            <button id="btnLogin" class="btn btn--primary">
+              <i class="ti ti-login"></i> Entrar
+            </button>
+            <button id="btnCadastro" class="btn btn--outline">
+              <i class="ti ti-user-plus"></i> Cadastrar
+            </button>
+          </div>
+
+          <div class="divider"><span>ou continue com</span></div>
+
+          <button class="btn btn--google">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+              <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+              <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+              <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+            </svg>
+            Entrar com Google
+          </button>
+
+          <button id="btnLogout" class="btn btn--ghost" style="display:none">
+            <i class="ti ti-logout"></i> Sair da conta
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features">
+    <div class="features-inner">
+      <div class="section-label">O que oferecemos</div>
+      <h2 class="section-title">Tudo que sua prótese precisa</h2>
+
+      <div class="features-grid">
+        <a href="tecnologia.html" class="feature-card">
+          <div class="feature-icon feature-icon--blue">
+            <i class="ti ti-cpu"></i>
+          </div>
+          <h3 class="feature-title">Tecnologia</h3>
+          <p class="feature-desc">Conheça as últimas inovações em próteses e dispositivos de mobilidade.</p>
+          <span class="feature-link">Explorar <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a href="manutencao.html" class="feature-card">
+          <div class="feature-icon feature-icon--green">
+            <i class="ti ti-tool"></i>
+          </div>
+          <h3 class="feature-title">Manutenção</h3>
+          <p class="feature-desc">Agende revisões e acompanhe o estado da sua prótese em tempo real.</p>
+          <span class="feature-link">Agendar <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a href="planos.html" class="feature-card">
+          <div class="feature-icon feature-icon--purple">
+            <i class="ti ti-star"></i>
+          </div>
+          <h3 class="feature-title">Planos</h3>
+          <p class="feature-desc">Escolha o plano ideal para o seu acompanhamento e necessidades.</p>
+          <span class="feature-link">Ver planos <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a href="suporte.html" class="feature-card">
+          <div class="feature-icon feature-icon--orange">
+            <i class="ti ti-headset"></i>
+          </div>
+          <h3 class="feature-title">Suporte</h3>
+          <p class="feature-desc">Nossa equipe especializada está disponível 24 horas por dia, 7 dias por semana.</p>
+          <span class="feature-link">Contato <i class="ti ti-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+        <span class="logo-text">New<strong>Member</strong></span>
+      </div>
+      <p class="footer-copy">© 2025 NewMember. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="firebase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    let dark = false;
+    themeBtn.addEventListener('click', () => {
+      dark = !dark;
+      document.body.classList.toggle('dark', dark);
+      themeIcon.className = dark ? 'ti ti-sun' : 'ti ti-moon';
+    });
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 </body>
 </html>

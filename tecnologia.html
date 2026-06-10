@@ -3,85 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnologias - New Member</title>
+    <title>Tecnologia - New Member</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <i class="ti ti-accessible"></i>
-            <span>New Member</span>
+    <header class="header scrolled">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+                <span class="logo-text">New<strong>Member</strong></span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="tecnologia.html" class="nav-link active">Tecnologia</a>
+                <a href="planos.html" class="nav-link">Planos</a>
+                <a href="manutencao.html" class="nav-link">Manutenção</a>
+                <a href="suporte.html" class="nav-link">Suporte</a>
+                <a href="perfil.html" class="nav-link nav-link--profile"><i class="ti ti-user"></i> Perfil</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn"><i class="ti ti-moon"></i></button>
+            </div>
         </div>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="tecnologia.html">Tecnologia</a>
-            <a href="planos.html">Planos</a>
-            <a href="manutencao.html">Manutenção</a>
-            <a href="suporte.html">Suporte</a>
-            <a href="perfil.html">Perfil</a>
-        </nav>
-        <button id="theme-toggle" aria-label="Alternar tema">
-            <i class="ti ti-moon"></i>
-        </button>
     </header>
 
-    <section class="hero short tecnologias">
-        <div class="hero-bg"></div>
-        <h1>Nossas Tecnologias</h1>
-        <p>Catálogo exclusivo de dispositivos assistivos e soluções biônicas de alta performance.</p>
-    </section>
-
-    <main class="vitrine-container">
-        <div class="cards-proteses">
+    <main class="features" style="padding-top: 140px;">
+        <div class="features-inner">
+            <span class="section-label">Portfólio de Inovações</span>
+            <h2 class="section-title">Dispositivos assistivos de última geração</h2>
             
-            <div class="protese-card">
-                <div class="protese-thumb">
-                    <img src="https://www.conforpes.com.br/wp-content/uploads/2022/07/i-Limb%C2%AE-Quantum.jpg" alt="Prótese de Mão Biônica">
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--blue"><i class="ti ti-hand-stop"></i></div>
+                    <h3 class="feature-title">Nexus Hand-5</h3>
+                    <p class="feature-desc">Mão biônica com articulação independente nos 5 dedos e garras revestidas de silicone aderente. Sensores mioelétricos captam impulsos musculares permitindo movimentos de alta precisão.</p>
+                    <a href="manutencao.html" class="feature-link">Agendar Revisão <i class="ti ti-arrow-right"></i></a>
                 </div>
-                <div class="protese-conteudo">
-                    <span class="protese-tag">Dispositivo Ativo</span>
-                    <h3>Mão Biônica (Nexus Hand-5)</h3>
-                    <p>Desenvolvida com articulação independente nos 5 dedos e garras revestidas de silicone aderente. Possui sensores mioelétricos de alta sensibilidade que captam os impulsos musculares do membro residual, permitindo movimentos finos como segurar um copo ou digitar.</p>
-                </div>
-            </div>
 
-            <div class="protese-card">
-                <div class="protese-thumb">
-                    <img src="https://www.medikal.com/images/fonksiyonel-forequarter-protezi.jpg" alt="Prótese de Antebraço">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--green"><i class="ti ti-armchair"></i></div>
+                    <h3 class="feature-title">Pulse Radial FX</h3>
+                    <p class="feature-desc">Sistema indicado para amputações transradiais. Integra rotação eletrônica do punho em até 360° e parametrização de pressão via conexão Bluetooth.</p>
+                    <a href="manutencao.html" class="feature-link">Agendar Revisão <i class="ti ti-arrow-right"></i></a>
                 </div>
-                <div class="protese-conteudo">
-                    <span class="protese-tag">Dispositivo Ativo</span>
-                    <h3>Prótese de Antebraço (Pulse Radial FX)</h3>
-                    <p>Indicada para amputações transradiais, este modelo integra o encaixe do antebraço a um sistema de rotação eletrônica do punho em até 360 graus. Conta com calibração via app Bluetooth para ajustar a velocidade e a força dos padrões de pinça mecânica.</p>
-                </div>
-            </div>
 
-            <div class="protese-card">
-                <div class="protese-thumb">
-                    <img src="https://preview.free3d.com/img/2023/06/3191673542009685311/jyehs540.jpg" alt="Prótese de Braço Inteiro">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--purple"><i class="ti ti-bolt"></i></div>
+                    <h3 class="feature-title">Titanium Titan-U</h3>
+                    <p class="feature-desc">Solução completa para amputações transumerais. Cotovelo motorizado sincronizado eletronicamente com os movimentos da mão biônica e compensação ativa de peso.</p>
+                    <a href="manutencao.html" class="feature-link">Agendar Revisão <i class="ti ti-arrow-right"></i></a>
                 </div>
-                <div class="protese-conteudo">
-                    <span class="protese-tag">Dispositivo Ativo</span>
-                    <h3>Braço Inteiro Biônico (Titanium Titan-U)</h3>
-                    <p>Solução completa para amputações transumerais (acima do cotovelo). Apresenta uma articulação de cotovelo motorizada sincronizada eletronicamente com os movimentos da mão biônica, oferecendo suporte robusto para levantamento de cargas leves e médias com compensação de peso automático.</p>
-                </div>
-            </div>
 
-            <div class="protese-card">
-                <div class="protese-thumb">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0UcA2aMNoV0Rv8SQ8dCCBGY8ZSnSQoEZqQ5-WkBrdKrSQvki" alt="Prótese de Perna Biônica">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--orange"><i class="ti ti-run"></i></div>
+                    <h3 class="feature-title">Apex Kinetic Knee</h3>
+                    <p class="feature-desc">Joelhado hidráulico microprocessado com leitura de marcha instantânea. Adapta-se automaticamente a escadas, rampas e relevos desregulados fornecendo estabilidade.</p>
+                    <a href="manutencao.html" class="feature-link">Agendar Revisão <i class="ti ti-arrow-right"></i></a>
                 </div>
-                <div class="protese-conteudo">
-                    <span class="protese-tag">Dispositivo Ativo</span>
-                    <h3>Perna Biônica (Apex Kinetic Knee)</h3>
-                    <p>Equipada com um joelho hidráulico microprocessado que analisa a marcha do usuário 100 vezes por segundo. O sistema de inteligência artificial adapta o amortecimento instantaneamente para descida de escadas, rampas e caminhadas em terrenos instáveis com total segurança contra quedas.</p>
-                </div>
-            </div>
 
+            </div>
         </div>
     </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NewMember. Todos os direitos reservados.</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

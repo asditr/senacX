@@ -5,8 +5,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  GoogleAuthProvider, // Importado para o Google
-  signInWithPopup     // Importado para abrir a janelinha do Google
+  GoogleAuthProvider,
+  signInWithPopup
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -22,7 +22,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-// Inicializa o provedor do Google
 const googleProvider = new GoogleAuthProvider();
 
 // ===================== EVENTOS DE AUTENTICAÇÃO =====================
@@ -55,8 +54,8 @@ document.getElementById("btnLogin")?.addEventListener("click", async () => {
     }
 });
 
-// Login com GOOGLE
-document.querySelector(".btn-google")?.addEventListener("click", async () => {
+// Login com GOOGLE (Seletor corrigido)
+document.querySelector(".btn--google")?.addEventListener("click", async () => {
     try {
         const result = await signInWithPopup(auth, googleProvider);
         const user = result.user;
@@ -80,43 +79,43 @@ document.getElementById("btnLogout")?.addEventListener("click", async () => {
 // ===================== MONITOR DE ESTADO DO USUÁRIO =====================
 onAuthStateChanged(auth, (user) => {
     const usuarioLogadoSpan = document.getElementById("usuario-logado");
-    const nomeUsuarioDashboard = document.getElementById("nomeUsuario");
-    const userStatusSection = document.getElementById("user-status-section");
+    const loginCardHeader = document.querySelector(".login-card-header p");
     
-    // Seleciona os blocos visuais para alternar
-    const loginInputs = document.querySelector(".login-inputs");
-    const btnGoogle = document.querySelector(".btn-google");
-    const btnCadastro = document.getElementById("btnCadastro");
-    const btnLogin = document.getElementById("btnLogin");
+    // Seleção correta das estruturas do novo HTML
+    const inputGroups = document.querySelectorAll(".input-group");
+    const divider = document.querySelector(".divider");
+    const loginBtnsContainer = document.querySelector(".login-btns");
+    const btnGoogle = document.querySelector(".btn--google");
     const btnLogout = document.getElementById("btnLogout");
 
     if (user) {
-        // Se o usuário logou por e-mail pega o e-mail, se foi pelo Google tenta o Nome de exibição
         const nomeParaMostrar = user.displayName || user.email;
 
-        // 1. Atualiza os textos na tela
-        if (usuarioLogadoSpan) usuarioLogadoSpan.textContent = `👤 ${nomeParaMostrar}`;
-        if (nomeUsuarioDashboard) nomeUsuarioDashboard.textContent = nomeParaMostrar;
+        // Atualiza elementos de texto
+        if (usuarioLogadoSpan) usuarioLogadoSpan.textContent = nomeParaMostrar + " | ";
+        if (loginCardHeader) loginCardHeader.textContent = `Conectado como: ${nomeParaMostrar}`;
 
-        // 2. Controla o que aparece na tela
-        if (userStatusSection) userStatusSection.style.display = "block"; // Mostra o card do usuário
-        if (loginInputs) loginInputs.style.display = "none";             // Esconde os campos de texto
-        if (btnGoogle) btnGoogle.style.display = "none";                 // Esconde o botão do Google
-        if (btnCadastro) btnCadastro.style.display = "none";             // Esconde Cadastrar
-        if (btnLogin) btnLogin.style.display = "none";                   // Esconde Entrar
-        if (btnLogout) btnLogout.style.display = "block";                 // Mostra o botão Sair
+        // Esconde formulários e botões de autenticação inicial
+        inputGroups.forEach(group => group.style.display = "none");
+        if (divider) divider.style.display = "none";
+        if (loginBtnsContainer) loginBtnsContainer.style.display = "none";
+        if (btnGoogle) btnGoogle.style.setProperty('display', 'none', 'important');
+        
+        // Exibe botão de Sair
+        if (btnLogout) btnLogout.style.display = "flex";
 
     } else {
-        // Se o usuário deslogou
+        // Fluxo de usuário Desconectado
         if (usuarioLogadoSpan) usuarioLogadoSpan.textContent = "";
-        if (nomeUsuarioDashboard) nomeUsuarioDashboard.textContent = "Carregando...";
+        if (loginCardHeader) loginCardHeader.textContent = "Gerencie sua jornada de reabilitação";
 
-        // 2. Reseta a tela para o modo deslogado
-        if (userStatusSection) userStatusSection.style.display = "none";
-        if (loginInputs) loginInputs.style.display = "flex";
-        if (btnGoogle) btnGoogle.style.display = "flex";
-        if (btnCadastro) btnCadastro.style.display = "block";
-        if (btnLogin) btnLogin.style.display = "block";
+        // Exibe novamente os inputs e métodos de login
+        inputGroups.forEach(group => group.style.display = "flex");
+        if (divider) divider.style.display = "flex";
+        if (loginBtnsContainer) loginBtnsContainer.style.display = "grid";
+        if (btnGoogle) btnGoogle.style.setProperty('display', 'flex', 'important');
+        
+        // Oculta botão de Sair
         if (btnLogout) btnLogout.style.display = "none";
     }
 });

@@ -8,67 +8,68 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <i class="ti ti-accessible"></i>
-            <span>New Member</span>
+
+    <header class="header scrolled">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+                <span class="logo-text">New<strong>Member</strong></span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="tecnologia.html" class="nav-link">Tecnologia</a>
+                <a href="planos.html" class="nav-link active">Planos</a>
+                <a href="manutencao.html" class="nav-link">Manutenção</a>
+                <a href="suporte.html" class="nav-link">Suporte</a>
+                <a href="perfil.html" class="nav-link nav-link--profile"><i class="ti ti-user"></i> Perfil</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn"><i class="ti ti-moon"></i></button>
+            </div>
         </div>
-        <nav>
-    <a href="index.html">Início</a>
-    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="suporte.html">Suporte</a>
-    <a href="perfil.html">Perfil</a>
-</nav>
-        <button id="theme-toggle" aria-label="Alternar tema">
-            <i class="ti ti-moon"></i>
-        </button>
     </header>
 
-    <section class="hero short planos">
-    <div class="hero-bg"></div>
-    <h1>Nossos Planos</h1>
-    <p>Escolha o plano ideal para cuidar da sua prótese</p>
-</section>
+    <main class="features" style="padding-top: 140px;">
+        <div class="features-inner">
+            <span class="section-label">Assinaturas e Coberturas</span>
+            <h2 class="section-title">Escolha o nível ideal de proteção e suporte</h2>
+            
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--blue"><i class="ti ti-shield"></i></div>
+                    <h3 class="feature-title">Plano Básico</h3>
+                    <p class="feature-desc" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">R$ 49<span style="font-size: 0.875rem; color: var(--text-secondary);">/mês</span></p>
+                    <p class="feature-desc">Suporte em horário comercial, 1 revisão preventiva semestral inclusa e acesso básico ao painel de telemetria.</p>
+                    <button class="btn btn--outline" style="margin-top: auto; padding: 0.6rem;">Selecionar</button>
+                </div>
 
-    <section class="plans">
-        <div class="plan-card">
-            <h3>Básico</h3>
-            <div class="price">R$ 49<span>/mês</span></div>
-            <ul>
-                <li>✓ Acompanhamento básico</li>
-                <li>✓ 1 manutenção por ano</li>
-                <li>✓ Suporte por e-mail</li>
-            </ul>
-            <button class="btn-plan">Escolher Básico</button>
+                <div class="feature-card" style="border-color: var(--blue); box-shadow: var(--shadow-lg);">
+                    <div class="feature-icon feature-icon--green"><i class="ti ti-shield-check"></i></div>
+                    <h3 class="feature-title">Plano Pro (Recomendado)</h3>
+                    <p class="feature-desc" style="font-size: 1.5rem; font-weight: 700; color: var(--blue);">R$ 99<span style="font-size: 0.875rem; color: var(--text-secondary);">/mês</span></p>
+                    <p class="feature-desc">Suporte prioritário 24/7, revisões preventivas trimestrais, calibração remota avançada e reposição rápida de componentes de desgaste.</p>
+                    <button class="btn btn--primary" style="margin-top: auto; padding: 0.6rem;">Assinar Agora</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon--purple"><i class="ti ti-diamond"></i></div>
+                    <h3 class="feature-title">Plano Premium</h3>
+                    <p class="feature-desc" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">R$ 199<span style="font-size: 0.875rem; color: var(--text-secondary);">/mês</span></p>
+                    <p class="feature-desc">Cobertura total contra acidentes, atualizações de hardware inclusas, atendimento VIP domiciliar e fisioterapia assistiva integrada.</p>
+                    <button class="btn btn--outline" style="margin-top: auto; padding: 0.6rem;">Selecionar</button>
+                </div>
+
+            </div>
         </div>
+    </main>
 
-        <div class="plan-card popular">
-            <div class="popular-badge">Mais Popular</div>
-            <h3>Premium</h3>
-            <div class="price">R$ 89<span>/mês</span></div>
-            <ul>
-                <li>✓ Acompanhamento completo</li>
-                <li>✓ 3 manutenções por ano</li>
-                <li>✓ Suporte prioritário</li>
-                <li>✓ Reabilitação inclusa</li>
-            </ul>
-            <button class="btn-plan">Escolher Premium</button>
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NewMember. Todos os direitos reservados.</span>
         </div>
+    </footer>
 
-        <div class="plan-card">
-            <h3>Elite</h3>
-            <div class="price">R$ 149<span>/mês</span></div>
-            <ul>
-                <li>✓ Tudo do Premium</li>
-                <li>✓ Manutenções ilimitadas</li>
-                <li>✓ Suporte 24h</li>
-                <li>✓ Prótese reserva</li>
-            </ul>
-            <button class="btn-plan">Escolher Elite</button>
-        </div>
-    </section>
-
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

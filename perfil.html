@@ -3,185 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - New Member</title>
+    <title>Suporte - New Member</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
-<script type="module">
-import { auth } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
-// Inicializa o Banco de Dados Firestore
-const db = getFirestore();
-
-onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-        window.location.href = "index.html";
-    } else {
-        // 1. Preenche dados básicos do Auth
-        document.getElementById("user-email").innerText = user.email;
-        
-        // Se houver foto do Google, exibe
-        if (user.photoURL) {
-            const photoEl = document.getElementById("user-photo");
-            photoEl.src = user.photoURL;
-            photoEl.style.display = "block";
-            if (document.getElementById("user-icon-default")) {
-                document.getElementById("user-icon-default").style.display = "none";
-            }
-        }
-
-        // Caso o usuário não tenha cadastro no banco ainda, deixa o nome do Google como padrão
-        document.getElementById("nomeCompleto").value = user.displayName || "";
-
-        // 2. Busca dados adicionais salvos no Firestore Database
-        try {
-            const docRef = doc(db, "usuarios", user.uid);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                const dados = docSnap.data();
-                if (dados.nomeCompleto) document.getElementById("nomeCompleto").value = dados.nomeCompleto;
-                if (dados.telefone) document.getElementById("telefone").value = dados.telefone;
-                if (dados.cpf) document.getElementById("cpf").value = dados.cpf;
-                if (dados.endereco) document.getElementById("endereco").value = dados.endereco;
-            }
-        } catch (erro) {
-            console.error("Erro ao buscar dados do Firestore:", erro);
-        }
-    }
-});
-
-// Executa após a página carregar os elementos do DOM
-document.addEventListener("DOMContentLoaded", () => {
-    const formPerfil = document.getElementById("formPerfil");
-    const btnLogout = document.getElementById("btn-logout");
-
-    // Ação de Salvar/Atualizar Dados no Firestore
-    formPerfil?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        
-        const user = auth.currentUser;
-        if (!user) return alert("Você precisa estar logado!");
-
-        // Captura o que o usuário digitou
-        const dadosUsuario = {
-            nomeCompleto: document.getElementById("nomeCompleto").value,
-            telefone: document.getElementById("telefone").value,
-            cpf: document.getElementById("cpf").value,
-            endereco: document.getElementById("endereco").value,
-            email: user.email,
-            atualizadoEm: new Date().toLocaleDateString("pt-BR")
-        };
-
-        try {
-            // Salva ou atualiza o documento na coleção "usuarios" usando o UID dele
-            await setDoc(doc(db, "usuarios", user.uid), dadosUsuario, { merge: true });
-            alert("✅ Dados salvos com sucesso!");
-        } catch (erro) {
-            alert("Erro ao salvar os dados: " + erro.message);
-        }
-    });
-
-    // Ação de Logout (Sair da conta)
-    btnLogout?.addEventListener("click", () => {
-        signOut(auth).then(() => {
-            window.location.href = "index.html";
-        }).catch((error) => {
-            alert("Erro ao sair: " + error.message);
-        });
-    });
-});
-</script>
-});
-</script>
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "index.html";
-    }
-});
-</script>
 <body>
-    <header>
-        <div class="logo">
-            <i class="ti ti-accessible"></i>
-            <span>New Member</span>
+
+    <header class="header scrolled">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+                <span class="logo-text">New<strong>Member</strong></span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="tecnologia.html" class="nav-link">Tecnologia</a>
+                <a href="planos.html" class="nav-link">Planos</a>
+                <a href="manutencao.html" class="nav-link">Manutenção</a>
+                <a href="suporte.html" class="nav-link active">Suporte</a>
+                <a href="perfil.html" class="nav-link nav-link--profile"><i class="ti ti-user"></i> Perfil</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn"><i class="ti ti-moon"></i></button>
+            </div>
         </div>
-        <nav>
-    <a href="index.html">Início</a>
-    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="suporte.html">Suporte</a>
-    <a href="perfil.html">Perfil</a>
-</nav>
-        <button id="theme-toggle" aria-label="Alternar tema">
-            <i class="ti ti-moon"></i>
-        </button>
     </header>
-    
-    <section class="hero short perfil">
-    <div class="hero-bg"></div>
-    <h1>Meu perfil</h1>
-    <p>Gerencie suas informações e histórico</p>
-</section>
 
-    <section class="perfil-container">
-        
-        <div class="card card-perfil-info">
-            <div class="avatar-container">
-                <img id="user-photo" src="" alt="Foto de Perfil" style="display: none;">
-                <i id="user-icon-default" class="ti ti-user"></i>
-            </div>
-            <p id="user-email" class="email-texto">Carregando e-mail...</p>
-
-            <form id="formPerfil">
-                <div class="input-grupo">
-                    <label for="nomeCompleto">Nome Completo</label>
-                    <input type="text" id="nomeCompleto" placeholder="Seu nome completo" required>
+    <main class="features" style="padding-top: 140px;">
+        <div class="features-inner">
+            <span class="section-label">Central de Ajuda</span>
+            <h2 class="section-title">Estamos prontos para atender você</h2>
+            
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start;">
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="ti ti-headset" style="color: var(--blue);"></i> Canais de Atendimento</h3>
+                    <p class="feature-desc" style="margin-bottom: 1rem;">Escolha o canal de sua preferência para falar com nossos técnicos especialistas.</p>
+                    
+                    <a href="#" class="btn btn--outline" style="justify-content: flex-start; color: #10B981; border-color: rgba(16,185,129,.25); margin-bottom: .5rem;">
+                        <i class="ti ti-brand-whatsapp"></i> Conversar via WhatsApp
+                    </a>
+                    <a href="#" class="btn btn--outline" style="justify-content: flex-start; var(--text-primary); margin-bottom: .5rem;">
+                        <i class="ti ti-mail"></i> Enviar um E-mail
+                    </a>
                 </div>
 
-                <div class="input-grupo-linha">
-                    <div class="input-grupo">
-                        <label for="telefone">Telefone / WhatsApp</label>
-                        <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="ti ti-question-mark" style="color: var(--purple);"></i> Perguntas Frequentes</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div>
+                            <h4 style="font-size: .9375rem; font-weight: 700; margin-bottom: .25rem;">A prótese é resistente à água?</h4>
+                            <p style="font-size: .875rem; color: var(--text-secondary);">Os modelos possuem certificação IP64 (resistência a respingos e suor), mas não devem ser imersos ou expostos a banhos de mar.</p>
+                        </div>
+                        <hr style="border: none; height: 1px; background: var(--border);">
+                        <div>
+                            <h4 style="font-size: .9375rem; font-weight: 700; margin-bottom: .25rem;">Qual a autonomia média da bateria?</h4>
+                            <p style="font-size: .875rem; color: var(--text-secondary);">A bateria interna foi desenvolvida para suportar entre 16h e 20h de uso contínuo, carregando por completo em apenas 2 horas na tomada.</p>
+                        </div>
                     </div>
-                    <div class="input-grupo">
-                        <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" placeholder="000.000.000-00" required>
-                    </div>
                 </div>
 
-                <div class="input-grupo">
-                    <label for="endereco">Endereço Completo</label>
-                    <input type="text" id="endereco" placeholder="Rua, Número, Bairro, Cidade - UF" required>
-                </div>
-
-                <button type="submit" id="btn-salvar" class="btn-enviar">
-                    <i class="ti ti-device-floppy"></i> Salvar Alterações
-                </button>
-            </form>
-
-            <button id="btn-logout" class="btn-logout" style="margin-top: 20px;">
-                <i class="ti ti-logout"></i> Sair da Conta
-            </button>
-        </div>
-
-        <div class="card card-perfil-status">
-            <i class="ti ti-id-badge"></i>
-            <h3>Status do Membro</h3>
-            <p>Gerencie o nível do seu ecossistema New Member.</p>
-
-            <div class="plano-status-box">
-                <div class="plano-info-topo">
-                    <span class="plano-badge">Plano Gratuito / Teste</span>
-                </div>
-                <p class="plano-descricao">Mantenha seus dados atualizados para facilitar o preenchimento de ordens de serviço automáticas na aba de Manutenção.</p>
-                <a href="planos.html" class="btn-enviar" style="display: inline-block; text-align: center; text-decoration: none; margin-top: 15px;">Ver Planos Disponíveis</a>
             </div>
         </div>
+    </main>
 
-    </section>
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NewMember. Todos os direitos reservados.</span>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

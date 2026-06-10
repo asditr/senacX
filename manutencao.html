@@ -3,94 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manutenção - New Member</title>
+    <title>Perfil - New Member</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <i class="ti ti-accessible"></i>
-            <span>New Member</span>
+    <header class="header scrolled">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="ti ti-accessible"></i></div>
+                <span class="logo-text">New<strong>Member</strong></span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="tecnologia.html" class="nav-link">Tecnologia</a>
+                <a href="planos.html" class="nav-link">Planos</a>
+                <a href="manutencao.html" class="nav-link">Manutenção</a>
+                <a href="suporte.html" class="nav-link">Suporte</a>
+                <a href="perfil.html" class="nav-link active nav-link--profile"><i class="ti ti-user"></i> Perfil</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-btn"><i class="ti ti-moon"></i></button>
+            </div>
         </div>
-        <nav>
-    <a href="index.html">Início</a>
-    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="suporte.html">Suporte</a>
-    <a href="perfil.html">Perfil</a>
-</nav>
-        <button id="theme-toggle" aria-label="Alternar tema">
-            <i class="ti ti-moon"></i>
-        </button>
     </header>
 
-    <section class="hero short manutencao">
-        <div class="hero-bg"></div>
-        <h1>Manutenção</h1>
-        <p>Acompanhe o status das suas manutenções</p>
-    </section>
-
-    <section class="manutencao-container">
-        
-        <div class="card form-manutencao">
-            <i class="ti ti-calendar-plus"></i>
-            <h3>Nova Solicitação</h3>
-            <p>Preencha os dados abaixo para agendar a revisão da sua prótese.</p>
+    <main class="features" style="padding-top: 140px;">
+        <div class="features-inner">
+            <span class="section-label">Área do Paciente</span>
+            <h2 class="section-title">Dados cadastrais e conectividade</h2>
             
-            <form id="formAgendamento">
-                <div class="input-grupo">
-                    <label for="tipoProtese">Modelo/Tipo da Prótese</label>
-                    <input type="text" id="tipoProtese" placeholder="Ex: Transtibial Bionica X3" required>
+            <div class="features-grid" style="grid-template-columns: 1fr 360px; align-items: start;">
+                
+                <div class="feature-card" style="box-shadow: var(--shadow-card);">
+                    <h3 class="feature-title"><i class="ti ti-id" style="color: var(--blue);"></i> Informações Pessoais</h3>
+                    <div class="login-card-body" style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="input-group">
+                            <label class="input-label">Nome Completo</label>
+                            <input type="text" class="input-field" style="padding-left: 1rem;" value="Alex Silva">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">E-mail cadastrado</label>
+                            <input type="email" class="input-field" style="padding-left: 1rem;" value="alex@exemplo.com" disabled>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Telefone</label>
+                            <input type="text" class="input-field" style="padding-left: 1rem;" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Número de Série da Prótese</label>
+                            <input type="text" class="input-field" style="padding-left: 1rem;" value="#NX-55092" disabled>
+                        </div>
+                        <button class="btn btn--primary" style="grid-column: span 2; margin-top: .5rem;">Salvar Informações</button>
+                    </div>
                 </div>
 
-                <div class="input-grupo">
-                    <label for="dataPreferida">Data Preferencial</label>
-                    <input type="date" id="dataPreferida" required>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon feature-icon--purple" style="margin: 0 auto;"><i class="ti ti-device-analytics"></i></div>
+                    <h3 class="feature-title" style="margin-top: .5rem;">Status do Sistema</h3>
+                    <p class="feature-desc">Dispositivo conectado via nuvem. Firmware atualizado na versão v2.4.2.</p>
+                    <button class="btn btn--ghost" style="margin-top: 1rem;"><i class="ti ti-logout"></i> Encerrar Sessão</button>
                 </div>
 
-                <div class="input-grupo">
-                    <label for="descricaoDefeito">O que está acontecendo?</label>
-                    <textarea id="descricaoDefeito" rows="4" placeholder="Descreva aqui se há algum barulho, folga, problema na bateria ou se é apenas revisão de rotina..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn-enviar">Solicitar Agendamento</button>
-            </form>
-        </div>
-
-        <div class="card historico-manutencao">
-    <i class="ti ti-history"></i>
-    <h3>Minhas Manutenções</h3>
-    <p>Acompanhe o andamento dos seus chamados.</p>
-
-    <div id="area-bloqueada" class="aviso-login">
-        <p>🔒 Para visualizar seu histórico de manutenções, você precisa estar conectado.</p>
-        <a href="index.html" class="btn-enviar" style="display: inline-block; text-align: center; text-decoration: none; margin-top: 15px;">Fazer Login / Cadastrar</a>
-    </div>
-
-    <div class="lista-chamados" id="listaChamados" style="display: none;">
-        <div class="chamado-item">
-            <div class="chamado-header">
-                <span class="chamado-data">📅 15/06/2026</span>
-                <span class="status badge-analise">Em Análise</span>
             </div>
-            <h4>Revisão de Rotina</h4>
-            <p>Prótese Transfemural - Ajuste no encaixe do liner.</p>
         </div>
+    </main>
 
-        <div class="chamado-item concluido">
-            <div class="chamado-header">
-                <span class="chamado-data">📅 10/04/2026</span>
-                <span class="status badge-concluido">Concluída</span>
-            </div>
-            <h4>Troca de Bateria</h4>
-            <p>Prótese Biônica de Mão - Bateria antiga substituída.</p>
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-copy">© 2026 NewMember. Todos os direitos reservados.</span>
         </div>
-    </div>
-</div>
-
-    </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>
