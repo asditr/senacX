@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manutenção - New Member</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="ti ti-accessible"></i>
+            <span>New Member</span>
+        </div>
+        <nav>
+    <a href="index.html">Início</a>
+    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
+    <a href="manutencao.html">Manutenção</a>
+    <a href="suporte.html">Suporte</a>
+    <a href="perfil.html">Perfil</a>
+</nav>
+        <button id="theme-toggle" aria-label="Alternar tema">
+            <i class="ti ti-moon"></i>
+        </button>
+    </header>
+
+    <section class="hero short manutencao">
+        <div class="hero-bg"></div>
+        <h1>Manutenção</h1>
+        <p>Acompanhe o status das suas manutenções</p>
+    </section>
+
+    <section class="manutencao-container">
+        
+        <div class="card form-manutencao">
+            <i class="ti ti-calendar-plus"></i>
+            <h3>Nova Solicitação</h3>
+            <p>Preencha os dados abaixo para agendar a revisão da sua prótese.</p>
+            
+            <form id="formAgendamento">
+                <div class="input-grupo">
+                    <label for="tipoProtese">Modelo/Tipo da Prótese</label>
+                    <input type="text" id="tipoProtese" placeholder="Ex: Transtibial Bionica X3" required>
+                </div>
+
+                <div class="input-grupo">
+                    <label for="dataPreferida">Data Preferencial</label>
+                    <input type="date" id="dataPreferida" required>
+                </div>
+
+                <div class="input-grupo">
+                    <label for="descricaoDefeito">O que está acontecendo?</label>
+                    <textarea id="descricaoDefeito" rows="4" placeholder="Descreva aqui se há algum barulho, folga, problema na bateria ou se é apenas revisão de rotina..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Solicitar Agendamento</button>
+            </form>
+        </div>
+
+        <div class="card historico-manutencao">
+    <i class="ti ti-history"></i>
+    <h3>Minhas Manutenções</h3>
+    <p>Acompanhe o andamento dos seus chamados.</p>
+
+    <div id="area-bloqueada" class="aviso-login">
+        <p>🔒 Para visualizar seu histórico de manutenções, você precisa estar conectado.</p>
+        <a href="index.html" class="btn-enviar" style="display: inline-block; text-align: center; text-decoration: none; margin-top: 15px;">Fazer Login / Cadastrar</a>
+    </div>
+
+    <div class="lista-chamados" id="listaChamados" style="display: none;">
+        <div class="chamado-item">
+            <div class="chamado-header">
+                <span class="chamado-data">📅 15/06/2026</span>
+                <span class="status badge-analise">Em Análise</span>
+            </div>
+            <h4>Revisão de Rotina</h4>
+            <p>Prótese Transfemural - Ajuste no encaixe do liner.</p>
+        </div>
+
+        <div class="chamado-item concluido">
+            <div class="chamado-header">
+                <span class="chamado-data">📅 10/04/2026</span>
+                <span class="status badge-concluido">Concluída</span>
+            </div>
+            <h4>Troca de Bateria</h4>
+            <p>Prótese Biônica de Mão - Bateria antiga substituída.</p>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

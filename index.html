@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Member - Cuidado com sua Prótese</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="ti ti-accessible"></i>
+            <span>New Member</span>
+        </div>
+
+        <span id="usuario-logado"></span>
+
+        <nav>
+    <a href="index.html">Início</a>
+    <a href="tecnologia.html">Tecnologia</a> <a href="planos.html">Planos</a>
+    <a href="manutencao.html">Manutenção</a>
+    <a href="suporte.html">Suporte</a>
+    <a href="perfil.html">Perfil</a>
+</nav>
+
+        <button id="theme-toggle" aria-label="Alternar tema">
+            <i class="ti ti-moon"></i>
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <h1>Próteses</h1>
+        <p>Acompanhe sua prótese, manutenção, reabilitação e suporte especializado.</p>
+
+        <div class="login-container">
+            <div class="login-inputs">
+                <input type="email" id="email" placeholder="Seu e-mail">
+                <input type="password" id="senha" placeholder="Sua senha">
+            </div>
+            
+            <div class="login-actions">
+                <button id="btnCadastro">Cadastrar</button>
+                <button id="btnLogin">Entrar</button>
+                <button id="btnLogout" style="display: none;">Sair</button>
+            </div>
+
+            <button class="btn-google">
+                <i class="ti ti-brand-google-filled"></i> Entrar com Google
+            </button>
+        </div>
+
+
+<script type="module" src="firebase.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
